@@ -1,0 +1,13 @@
+// src/components/ParkingSpaces.js
+import React from 'react';
+
+const Reports = () => {
+  return (
+    <div>
+      <h2>Parking Spaces</h2>
+      {/* Add your parking spaces content here */}
+    </div>
+  );
+};
+
+export default Reports;
