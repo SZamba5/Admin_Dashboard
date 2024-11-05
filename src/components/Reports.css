@@ -1,0 +1,169 @@
+/* src/components/Reports.css */
+.reports-container {
+    padding: 20px;
+  }
+  
+  .reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+    background-color: #f9f9f9;
+  }
+  
+  .report-info h3 {
+    margin: 0 0 5px 0;
+  }
+  
+  .report-info p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .report-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .report-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .report-actions button:first-child {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .report-actions button:last-child {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .report-details {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+  }
+  /* src/components/Reports.css */
+.reports-container {
+    padding: 20px;
+  }
+  
+  .reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px 5px 0 0;
+    background-color: #f9f9f9;
+  }
+  
+  .report-info h3 {
+    margin: 0 0 5px 0;
+  }
+  
+  .report-info p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .report-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .report-actions button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .report-actions button:first-child {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .report-actions button:last-child {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .report-details {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #fff;
+  }
+  /* src/components/Reports.css */
+/* ... (previous styles remain the same) ... */
+
+.add-report-btn {
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-report-form {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+  }
+  
+  .add-report-form input,
+  .add-report-form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+  }
+  
+  .add-report-form textarea {
+    height: 100px;
+  }
+  
+  .add-report-form button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .add-report-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .add-report-form button[type="button"] {
+    background-color: #f44336;
+    color: white;
+  }
