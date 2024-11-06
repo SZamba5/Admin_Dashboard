@@ -15,7 +15,7 @@ const ParkingSpaces = () => {
 
   return (
     <div className="parking-spaces">
-      <h2>Parking Spaces</h2>
+      <h2>Parking Lot</h2>
       <div className="parking-lot">
         {parkingLot.map((row, rowIndex) => (
           <div key={rowIndex} className="parking-row">
@@ -24,11 +24,13 @@ const ParkingSpaces = () => {
                 key={space}
                 className={`parking-space ${occupiedSpaces.includes(space) ? 'occupied' : 'available'}`}
               >
-                {space}
+                <div className="space-number">{space}</div>
+                <div className="car-icon">{occupiedSpaces.includes(space) ? '🚗' : ''}</div>
               </div>
             ))}
           </div>
         ))}
+        <div className="road"></div>
       </div>
       <div className="legend">
         <div className="legend-item">
