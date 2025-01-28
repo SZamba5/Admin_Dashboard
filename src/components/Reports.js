@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Reports.css';
 
 const Reports = () => {
+  //Hard-coded reports for demonstration.
   const initialReports = [
     { id: 1, title: 'Monthly Parking Revenue', date: '2024-11-01', summary: 'Total revenue for October: $15,000' },
     { id: 2, title: 'Occupancy Rate Analysis', date: '2024-10-25', summary: 'Average occupancy rate: 85%' },

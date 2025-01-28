@@ -10,6 +10,7 @@ import Reservations from './components/Reservations';
 import Users from './components/Users';
 import Reports from './components/Reports';
 import Settings from './components/Settings';
+import UserDetails from './components/UserDetails';
 import Login from './components/Login'; // Import the Login component
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
           {isLoggedIn && <Sidebar />}
           <main>
             <Routes>
+            <Route path="/user/:id" element={<UserDetails />} />
+
               <Route path="/login" element={!isLoggedIn ? <Login onLogin={handleLogin} /> : <Navigate to="/dashboard" />} />
               <Route 
                 path="/dashboard" 
@@ -57,6 +60,7 @@ function App() {
                 element={isLoggedIn ? <Settings /> : <Navigate to="/login" />} 
               />
               <Route path="/" element={<Navigate to={isLoggedIn ? "/dashboard" : "/login"} />} />
+              
             </Routes>
           </main>
         </div>

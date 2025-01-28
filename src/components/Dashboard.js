@@ -13,7 +13,7 @@ const Dashboard = () => {
           <ParkingSpaceOverview />
           <ReservationManagement />
           <CameraView />
-          {/* Add more components as needed */}
+          {}
         </main>
       </div>
       <Footer />

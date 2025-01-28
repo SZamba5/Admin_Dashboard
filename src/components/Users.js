@@ -1,17 +1,13 @@
 import React from 'react';
-import './Users.css'; // Make sure to create this CSS file
+import { Link } from 'react-router-dom';
+import './Users.css';
 
 const Users = () => {
-  // Dummy data for users
   const users = [
-    { id: 1, name: 'John Doe', email: 'john.doe@example.com', licensePlate: 'ABC123' },
-    { id: 2, name: 'Jane Smith', email: 'jane.smith@example.com', licensePlate: 'XYZ789' },
-    { id: 3, name: 'Mike Johnson', email: 'mike.johnson@example.com', licensePlate: 'DEF456' },
-    { id: 4, name: 'Emily Brown', email: 'emily.brown@example.com', licensePlate: 'GHI789' },
-    { id: 5, name: 'David Wilson', email: 'david.wilson@example.com', licensePlate: 'JKL012' },
-    { id: 6, name: 'Sarah Davis', email: 'sarah.davis@example.com', licensePlate: 'MNO345' },
-    { id: 7, name: 'Tom Anderson', email: 'tom.anderson@example.com', licensePlate: 'PQR678' },
-    { id: 8, name: 'Lisa Taylor', email: 'lisa.taylor@example.com', licensePlate: 'STU901' },
+    { id: 1, fullName: 'John Doe', email: 'john.doe@example.com', licensePlate: 'ABC123', carModel: 'Toyota Camry', carColor: 'Blue', lastLogin: '2025-01-27 09:15:00', hasReservation: true },
+    { id: 2, fullName: 'Jane Smith', email: 'jane.smith@example.com', licensePlate: 'XYZ789', carModel: 'Honda Civic', carColor: 'Red', lastLogin: '2025-01-28 08:30:00', hasReservation: false },
+    { id: 3, fullName: 'Mike Johnson', email: 'mike.johnson@example.com', licensePlate: 'DEF456', carModel: 'Ford Focus', carColor: 'Silver', lastLogin: '2025-01-26 14:45:00', hasReservation: true },
+    { id: 4, fullName: 'Emily Brown', email: 'emily.brown@example.com', licensePlate: 'GHI789', carModel: 'Chevrolet Malibu', carColor: 'Black', lastLogin: '2025-01-28 10:00:00', hasReservation: false },
   ];
 
   return (
@@ -24,15 +20,19 @@ const Users = () => {
             <th>Name</th>
             <th>Email</th>
             <th>License Plate</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
               <td>{user.id}</td>
-              <td>{user.name}</td>
+              <td>{user.fullName}</td>
               <td>{user.email}</td>
               <td>{user.licensePlate}</td>
+              <td>
+                <Link to={`/user/${user.id}`} className="view-info-button">View Info</Link>
+              </td>
             </tr>
           ))}
         </tbody>
