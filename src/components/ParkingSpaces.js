@@ -1,47 +1,97 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ParkingSpaces.css';
 
 const ParkingSpaces = () => {
-  // Define the layout of the parking lot
-  const parkingLot = [
-    ['A1', 'A2', 'A3', 'A4', 'A5'],
-    ['B1', 'B2', 'B3', 'B4', 'B5'],
-    ['C1', 'C2', 'C3', 'C4', 'C5'],
-    ['D1', 'D2', 'D3', 'D4', 'D5'],
+  const [selectedUser, setSelectedUser] = useState(null);
+
+  const parkingData = [
+    { 
+      spot: 'A1', 
+      reserved: true, 
+      occupied: true, 
+      user: {
+        name: 'John Doe',
+        id: 'JD001',
+        car: 'Toyota Camry',
+        licensePlate: 'ABC123'
+      }
+    },
+    { 
+      spot: 'A2', 
+      reserved: false, 
+      occupied: false, 
+      user: null 
+    },
+    { 
+      spot: 'B1', 
+      reserved: true, 
+      occupied: false, 
+      user: null 
+    },
+    { 
+      spot: 'B2', 
+      reserved: false, 
+      occupied: true, 
+      user: {
+        name: 'Jane Smith',
+        id: 'JS002',
+        car: 'Honda Civic',
+        licensePlate: 'XYZ456'
+      }
+    },
   ];
 
-  // Dummy data for occupied spaces (you would fetch this from your backend)
-  const occupiedSpaces = ['A2', 'B4', 'C1', 'D3'];
+  const showUserInfo = (user) => {
+    setSelectedUser(user);
+  };
+
+  const closePopup = () => {
+    setSelectedUser(null);
+  };
 
   return (
-    <div className="parking-spaces">
-      <h2>Parking Lot</h2>
-      <div className="parking-lot">
-        {parkingLot.map((row, rowIndex) => (
-          <div key={rowIndex} className="parking-row">
-            {row.map((space) => (
-              <div
-                key={space}
-                className={`parking-space ${occupiedSpaces.includes(space) ? 'occupied' : 'available'}`}
-              >
-                <div className="space-number">{space}</div>
-                <div className="car-icon">{occupiedSpaces.includes(space) ? '🚗' : ''}</div>
-              </div>
-            ))}
+    <div className="parking-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Spot</th>
+            <th>Reserved</th>
+            <th>Occupied</th>
+            <th>User</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {parkingData.map((spot) => (
+            <tr key={spot.spot}>
+              <td>{spot.spot}</td>
+              <td>{spot.reserved ? 'Yes' : 'No'}</td>
+              <td>{spot.occupied ? 'Yes' : 'No'}</td>
+              <td>{spot.user ? spot.user.name : 'N/A'}</td>
+              <td>
+                {spot.user && (
+                  <button onClick={() => showUserInfo(spot.user)}>Info</button>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      {selectedUser && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>User Information</h2>
+            <div className="user-details">
+              <p><strong>Name:</strong> {selectedUser.name}</p>
+              <p><strong>ID:</strong> {selectedUser.id}</p>
+              <p><strong>Car:</strong> {selectedUser.car}</p>
+              <p><strong>License Plate:</strong> {selectedUser.licensePlate}</p>
+            </div>
+            <button onClick={closePopup}>Close</button>
           </div>
-        ))}
-        <div className="road"></div>
-      </div>
-      <div className="legend">
-        <div className="legend-item">
-          <div className="legend-color available"></div>
-          <span>Available</span>
         </div>
-        <div className="legend-item">
-          <div className="legend-color occupied"></div>
-          <span>Occupied</span>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
